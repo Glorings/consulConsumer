@@ -18,6 +18,7 @@ public class TestController {
     @Autowired
     private HelloService helloService;
 
+    //默认健康检查接口
     @GetMapping("/actuator/health")
     public String health(){
         return "SUCCESS";
@@ -28,4 +29,15 @@ public class TestController {
     public String hello(String name){
         return helloService.sayHello(name);
     }
+
+    /**
+     * 这里我们不使用默认的健康检测, 而是使用自己定义的接口
+     * @return SUCCESS
+     */
+    @GetMapping("/healthCustomer")
+    public String healthCustomer(){
+        return "SUCCESS";
+    }
+
+
 }
